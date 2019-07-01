@@ -53,6 +53,31 @@ import { Constants } from 'expo';
 import {Ionicons} from '@expo/vector-icons';
 
 export default class Profile extends Component {
+  constructor () {
+    this.state = {
+      profileName: 'jg123',
+      fullName: 'Juan Gutierez',
+      score: '30.50',
+      activity: [
+        {
+          type: 'like',
+          name: 'Lorich',
+          timestamp: ''
+        },
+        {
+          type: 'drip',
+          name: 'Lorich',
+          timestamp: ''
+        },
+        {
+          type: 'comment',
+          name: 'Lorich',
+          timestamp: ''
+        }
+      ]
+
+    }
+  }
 
   render() {
     const { goBack } = this.props.navigation;
@@ -68,8 +93,8 @@ export default class Profile extends Component {
       </View>
       <View style={{flexDirection:'column', alignItems:'center', justifyContent: 'space-between'}}>
         <Image style={styles.profilePhoto} source={require('../assets/profilePhoto.png')} />
-        <Text style={styles.profileName}>jg123</Text>
-        <Text style={styles.fullName}>Juan Gutierez | 30.50</Text>
+        <Text style={styles.profileName}>{this.state.profileName}</Text>
+        <Text style={styles.fullName}>{this.state.fullName} | {this.state.score}</Text>
       </View>
 
         <ThumbnailCarousel />

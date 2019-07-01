@@ -17,6 +17,13 @@ import {
 import { StackActions, NavigationActions } from 'react-navigation';
 
 export default class Home extends Component {
+  constructor () {
+    this.state = {
+      profileName: 'guwop',
+      dripCount: '17,335',
+      commentCount: '17,335'
+    }
+  }
   render() {
     const { navigate } = this.props.navigation;
 
@@ -61,11 +68,11 @@ export default class Home extends Component {
           <View style={styles.sideButtons}>
             <View style={ styles.commentCounters }>
               <Image style={styles.iconDrip} source={require('../assets/drip.png')} />
-              <Text style={styles.dripText}>17,335</Text>
+              <Text style={styles.dripText}>{this.state.dripCount}</Text>
             </View>
             <View style={ styles.commentCounters }>
               <Image style={styles.iconDrip} source={require('../assets/comments.png')} />
-              <Text style={styles.iconCounterText}>17,335</Text>
+              <Text style={styles.iconCounterText}>{this.state.commentCount}</Text>
             </View>
             <View style={ styles.commentCounters }>
               <Image style={styles.iconDrip} source={require('../assets/more.png')} />
@@ -75,7 +82,7 @@ export default class Home extends Component {
           <TouchableOpacity style={styles.guwop}>
             <View style={styles.guwopContainer}>
               <Image source={require('../assets/gucciprofile.png')} />
-              <Text style={styles.guwopText}>guwop</Text>
+              <Text style={styles.guwopText}>{this.state.profileName}</Text>
             </View>
           </TouchableOpacity>
 
