@@ -25,7 +25,8 @@ const AppNavigator = createStackNavigator({
     initialRouteName: 'Home',
     // headerMode: 'none',
     defaultNavigationOptions: {
-      headerTransparent: true
+      headerTransparent: true,
+      headerLeft: null
     }
 });
 

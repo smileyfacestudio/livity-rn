@@ -18,11 +18,13 @@ import { StackActions, NavigationActions } from 'react-navigation';
 
 export default class Home extends Component {
   render() {
+    const { navigate } = this.props.navigation;
+
     return (
       <View style={styles.imageContainer}>
         <StatusBar hidden={true} />
         <ImageBackground style={styles.image} source={require('../assets/guccibg.png')}>
-          <TouchableOpacity style={styles.inputView} onPress={() => {
+          <TouchableHighlight onPress={() => {
             this.props.navigation.dispatch(StackActions.reset({
               index: 0,
               actions: [
@@ -30,9 +32,11 @@ export default class Home extends Component {
               ],
             }))
           }}>
+          <View style={styles.inputView}>
             <Image source={require('../assets/search.png')} />
             <Text style={styles.searchText}>Local</Text>
-          </TouchableOpacity>
+          </View>
+          </TouchableHighlight>
           <TouchableOpacity style={styles.profile} onPress={() => {
             this.props.navigation.dispatch(StackActions.reset({
               index: 0,

@@ -47,7 +47,7 @@
 // });
 
 import React, { Component } from 'react';
-import { View, ScrollView, Image, StyleSheet, Dimensions, ImageBackground, Text, TouchableOpacity} from 'react-native';
+import { View, ScrollView, Image, StyleSheet, Dimensions, ImageBackground, Text, TouchableOpacity, Button} from 'react-native';
 import ThumbnailCarousel from './ThumbnailCarousel';
 import { Constants } from 'expo';
 import {Ionicons} from '@expo/vector-icons';
@@ -59,7 +59,7 @@ export default class Profile extends Component {
 
     return(
       <View style={styles.imageContainer}>
-      <ImageBackground resizeMode='cover' blurRadius={50} style={styles.image} source={require('../assets/guccibg.png')}>
+      <ImageBackground blurRadius={50} style={styles.image} source={require('../assets/guccibg.png')}>
       <View style={{flexDirection:'row', paddingHorizontal: 25, marginTop: 30, justifyContent:'space-between'}}>
         <TouchableOpacity onPress={() => {goBack('Home')}}>
           <Ionicons name="ios-arrow-back" size={32} color="white" />
