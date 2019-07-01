@@ -17,7 +17,8 @@ import {
 import { StackActions, NavigationActions } from 'react-navigation';
 
 export default class Home extends Component {
-  constructor () {
+  constructor (props) {
+    super(props);
     this.state = {
       profileName: 'guwop',
       dripCount: '17,335',
@@ -32,37 +33,37 @@ export default class Home extends Component {
         <StatusBar hidden={true} />
         <ImageBackground style={styles.image} source={require('../assets/guccibg.png')}>
           <TouchableHighlight onPress={() => {
-            this.props.navigation.dispatch(StackActions.reset({
-              index: 0,
-              actions: [
-                NavigationActions.navigate({ routeName: 'Explore' })
-              ],
-            }))
-          }}>
-          <View style={styles.inputView}>
-            <Image source={require('../assets/search.png')} />
-            <Text style={styles.searchText}>Local</Text>
-          </View>
+              this.props.navigation.dispatch(StackActions.reset({
+                index: 0,
+                actions: [
+                  NavigationActions.navigate({ routeName: 'Explore' })
+                ],
+              }))
+            }}>
+            <View style={styles.inputView}>
+              <Image source={require('../assets/search.png')} />
+              <Text style={styles.searchText}>Local</Text>
+            </View>
           </TouchableHighlight>
           <TouchableOpacity style={styles.profile} onPress={() => {
-            this.props.navigation.dispatch(StackActions.reset({
-              index: 0,
-              actions: [
-                NavigationActions.navigate({ routeName: 'Profile' })
-              ],
-            }))
-          }}>
+              this.props.navigation.dispatch(StackActions.reset({
+                index: 0,
+                actions: [
+                  NavigationActions.navigate({ routeName: 'Profile' })
+                ],
+              }))
+            }}>
             <Image source={require('../assets/profilePhoto.png')} />
           </TouchableOpacity>
 
           <TouchableHighlight onPress={() => {
-            this.props.navigation.dispatch(StackActions.reset({
-              index: 0,
-              actions: [
-                NavigationActions.navigate({ routeName: 'CameraPage' })
-              ],
-            }))
-          }}>
+              this.props.navigation.dispatch(StackActions.reset({
+                index: 0,
+                actions: [
+                  NavigationActions.navigate({ routeName: 'CameraPage' })
+                ],
+              }))
+            }}>
             <Image style={styles.camera} source={require('../assets/camera.png')} />
           </TouchableHighlight>
           <View style={styles.sideButtons}>

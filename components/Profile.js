@@ -53,7 +53,9 @@ import { Constants } from 'expo';
 import {Ionicons} from '@expo/vector-icons';
 
 export default class Profile extends Component {
-  constructor () {
+  constructor (props) {
+    super(props);
+
     this.state = {
       profileName: 'jg123',
       fullName: 'Juan Gutierez',
@@ -62,17 +64,20 @@ export default class Profile extends Component {
         {
           type: 'like',
           name: 'Lorich',
-          timestamp: ''
+          timestamp: '',
+          profileImage: 'profilePhoto'
         },
         {
           type: 'drip',
           name: 'Lorich',
-          timestamp: ''
+          timestamp: '',
+          profileImage: 'profilePhoto'
         },
         {
           type: 'comment',
           name: 'Lorich',
-          timestamp: ''
+          timestamp: '',
+          profileImage: 'profilePhoto'
         }
       ]
 
@@ -84,42 +89,50 @@ export default class Profile extends Component {
 
     return(
       <View style={styles.imageContainer}>
-      <ImageBackground blurRadius={50} style={styles.image} source={require('../assets/guccibg.png')}>
-      <View style={{flexDirection:'row', paddingHorizontal: 25, marginTop: 30, justifyContent:'space-between'}}>
-        <TouchableOpacity onPress={() => {goBack('Home')}}>
-          <Ionicons name="ios-arrow-back" size={32} color="white" />
-        </TouchableOpacity>
-        <Image style={styles.dm} source={require('../assets/dm_icon.png')} />
-      </View>
-      <View style={{flexDirection:'column', alignItems:'center', justifyContent: 'space-between'}}>
-        <Image style={styles.profilePhoto} source={require('../assets/profilePhoto.png')} />
-        <Text style={styles.profileName}>{this.state.profileName}</Text>
-        <Text style={styles.fullName}>{this.state.fullName} | {this.state.score}</Text>
-      </View>
+        <ImageBackground blurRadius={50} style={styles.image} source={require('../assets/guccibg.png')}>
+          <ScrollView>
+            <View style={{flexDirection:'row', paddingHorizontal: 25, marginTop: 30, justifyContent:'space-between'}}>
 
-        <ThumbnailCarousel />
-        <Text style={{color: 'white', fontSize: 15, marginLeft: 15}}>Notifications</Text>
-        <View style={{flexDirection:'row', justifyContent:'flex-start', alignItems: 'center', marginLeft: 20, marginTop: 20}}>
-          <Image style={{height: 20, width: 20}} source={require('../assets/heart.png')}/>
-          <View style={{flexDirection:'column', alignItems:'flex-start', flex: 2, marginLeft: 15}}>
-          <Image style={{height: 35, width: 35}} source={require('../assets/profilePhoto.png')} />
-          <Text style={{color: 'white', fontSize: 15, marginTop: 5}}><Text style={{color: 'green', fontSize: 15, fontWeight: 'bold'}}>Lorich</Text> likes you</Text>
-          </View>
-        </View>
-        <View style={{flexDirection:'row', justifyContent:'flex-start', alignItems: 'center', marginLeft: 20, marginTop: 20}}>
-          <Image style={{height: 20, width: 20}} source={require('../assets/drip.png')}/>
-          <View style={{flexDirection:'column', alignItems:'flex-start', flex: 2, marginLeft: 15}}>
-          <Image style={{height: 35, width: 35}} source={require('../assets/profilePhoto.png')} />
-          <Text style={{color: 'white', fontSize: 15, marginTop: 5}}><Text style={{color: 'green', fontSize: 15, fontWeight: 'bold'}}>Lorich</Text> fed your moment</Text>
-          </View>
-        </View>
-        <View style={{flexDirection:'row', justifyContent:'flex-start', alignItems: 'center', marginLeft: 20, marginTop: 20}}>
-          <Image style={{height: 20, width: 20}} source={require('../assets/comment.png')}/>
-          <View style={{flexDirection:'column', alignItems:'flex-start', flex: 2, marginLeft: 15}}>
-          <Image style={{height: 35, width: 35}} source={require('../assets/profilePhoto.png')} />
-          <Text style={{color: 'white', fontSize: 15, marginTop: 5}}><Text style={{color: 'green', fontSize: 15, fontWeight: 'bold'}}>Lorich</Text> commented on your moment</Text>
-          </View>
-        </View>
+              <TouchableOpacity onPress={() => {goBack('Home')}}>
+                <Ionicons name="ios-arrow-back" size={32} color="white" />
+              </TouchableOpacity>
+
+              <Image style={styles.dm} source={require('../assets/dm_icon.png')} />
+
+            </View>
+
+            <View style={{flexDirection:'column', alignItems:'center', justifyContent: 'space-between'}}>
+              <Image style={styles.profilePhoto} source={require('../assets/profilePhoto.png')} />
+              <Text style={styles.profileName}>{this.state.profileName}</Text>
+              <Text style={styles.fullName}>{this.state.fullName} | {this.state.score}</Text>
+            </View>
+
+            <ThumbnailCarousel />
+
+            <Text style={{color: 'white', fontSize: 15, marginLeft: 15}}>Notifications</Text>
+            <View style={{flexDirection:'row', justifyContent:'flex-start', alignItems: 'center', marginLeft: 20, marginTop: 20}}>
+              <Image style={{height: 20, width: 20}} source={require('../assets/heart.png')}/>
+              <View style={{flexDirection:'column', alignItems:'flex-start', flex: 2, marginLeft: 15}}>
+                <Image style={{height: 35, width: 35}} source={require('../assets/profilePhoto.png')} />
+                <Text style={{color: 'white', fontSize: 15, marginTop: 5}}><Text style={{color: 'green', fontSize: 15, fontWeight: 'bold'}}>Lorich</Text> likes you</Text>
+              </View>
+            </View>
+            <View style={{flexDirection:'row', justifyContent:'flex-start', alignItems: 'center', marginLeft: 20, marginTop: 20}}>
+              <Image style={{height: 20, width: 20}} source={require('../assets/drip.png')}/>
+              <View style={{flexDirection:'column', alignItems:'flex-start', flex: 2, marginLeft: 15}}>
+                <Image style={{height: 35, width: 35}} source={require('../assets/profilePhoto.png')} />
+                <Text style={{color: 'white', fontSize: 15, marginTop: 5}}><Text style={{color: 'green', fontSize: 15, fontWeight: 'bold'}}>Lorich</Text> fed your moment</Text>
+              </View>
+            </View>
+            <View style={{flexDirection:'row', justifyContent:'flex-start', alignItems: 'center', marginLeft: 20, marginTop: 20}}>
+              <Image style={{height: 20, width: 20}} source={require('../assets/comment.png')}/>
+              <View style={{flexDirection:'column', alignItems:'flex-start', flex: 2, marginLeft: 15}}>
+                <Image style={{height: 35, width: 35}} source={require('../assets/profilePhoto.png')} />
+                <Text style={{color: 'white', fontSize: 15, marginTop: 5}}><Text style={{color: 'green', fontSize: 15, fontWeight: 'bold'}}>Lorich</Text> commented on your moment</Text>
+              </View>
+            </View>
+            
+          </ScrollView>
         </ImageBackground>
       </View>
     )
