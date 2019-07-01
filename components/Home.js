@@ -14,15 +14,14 @@ import {
   Icon,
   TouchableHighlight
 } from 'react-native';
+import MomentActions from './MomentActions';
 import { StackActions, NavigationActions } from 'react-navigation';
 
 export default class Home extends Component {
   constructor (props) {
     super(props);
     this.state = {
-      profileName: 'guwop',
-      dripCount: '17,335',
-      commentCount: '17,335'
+      profileName: 'guwop'
     }
   }
   render() {
@@ -66,19 +65,8 @@ export default class Home extends Component {
             }}>
             <Image style={styles.camera} source={require('../assets/camera.png')} />
           </TouchableHighlight>
-          <View style={styles.sideButtons}>
-            <View style={ styles.commentCounters }>
-              <Image style={styles.iconDrip} source={require('../assets/drip.png')} />
-              <Text style={styles.dripText}>{this.state.dripCount}</Text>
-            </View>
-            <View style={ styles.commentCounters }>
-              <Image style={styles.iconDrip} source={require('../assets/comments.png')} />
-              <Text style={styles.iconCounterText}>{this.state.commentCount}</Text>
-            </View>
-            <View style={ styles.commentCounters }>
-              <Image style={styles.iconDrip} source={require('../assets/more.png')} />
-            </View>
-          </View>
+
+          <MomentActions />
 
           <TouchableOpacity style={styles.guwop}>
             <View style={styles.guwopContainer}>
